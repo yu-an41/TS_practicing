@@ -92,7 +92,51 @@ function hello3 (a: number, b: boolean, c: string) {
 }
 
 // undefined
+
+function test2 (a: number) {
+    console.log(a);
+}
+
 function hello4 (name: string, age?: number) {
     // 有?的參數要放在最後
-    return age
+    // let a: number
+    // a = age
+
+    if (age === undefined) return -1
+    test2(age)
+    return
 }
+
+// 箭頭函式
+const func = () => {
+
+}
+
+const fun2 = () => {
+    return 1
+}
+
+//  ---------- 斷言 unknown -------------
+type Data = {
+    userId: number,
+    id: number,
+    title: string,
+    completed: boolean
+}
+
+async function getData() {
+    const res = await fetch('https://jsonplaceholder.typicode.com/todos/1')
+    const data = await res.json() as Data
+}
+
+const data1:Data = {
+    "userId": 123,
+    "id": 1,
+    "title": "test",
+    "completed": false
+}
+
+type Beta = {
+    name: string
+}
+const beta = data1 as unknown as Beta
